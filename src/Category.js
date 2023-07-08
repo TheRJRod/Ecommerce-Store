@@ -1,28 +1,25 @@
 import { useEffect,useState } from "react";
 import Dropdown from "./Components/Dropdown";
 // displaying 5 from category on click
-function Category () {
+function Category ({value}) {
   const [category, setCategory] = useState([]);
   useEffect(() => {
     // Fetching API
     const fakeStore = async () => {
-      const response = await fetch(`https://fakestoreapi.com/products/category/electronics`); // left off here working on getting the category to be dynamic
+      const response = await fetch(`https://fakestoreapi.com/products/category/${value}?limit=4`); 
       const jsonData = await response.json();
       setCategory(jsonData);
-      console.log(category);
     }
   
     fakeStore();
-  }, [])
+  }, [category])
 
   // Optional chaining with "?"
-  return <div>
-    <Dropdown />
-    {category[0]?.title}  
+  return <div className="flex gap-x-5 px-[300px] pb-[150px]">
   {category.map((cat) => {
     return (
       <>
-      <div className=" mx-auto w-full h-96 flex flex-col border-2 rounded-lg	 p-10 ">
+      <div className=" cursor-pointer transform transition-all mx-auto w-full h-96 flex flex-col border-2 border-blue-500 rounded-lg	 p-10 hover:scale-110 ">
       <img className="w-48 h-48 self-center	" src={`${cat.image}`} alt={`${cat.title}`} />
       <h5 className="py-5 text-left">{cat.title}</h5>
       <p className="font-bold	">${cat.price}</p>
