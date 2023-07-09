@@ -16,7 +16,7 @@ const [scrollTop, setScrollTop] = useState('');
     } else {
       setScrollTop('')
     }
-    console.log(window.scrollY);
+    
   }
 
 

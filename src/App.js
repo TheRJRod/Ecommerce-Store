@@ -3,11 +3,15 @@ import Hero from "./Hero";
 import FeaturedHome from "./FeaturedHome";
 import Category from "./Category";
 import Dropdown from "./Components/Dropdown";
+import CartPopout from "./Components/CartPopout";
 import { useState, useEffect } from "react";
 
 function App() {
   const [product, setProduct] = useState([]);
-  const [categoryReturn, setCategoryReturn] = useState(`men's%20clothing`)
+  const [categoryReturn, setCategoryReturn] = useState(`men's%20clothing`);
+  const [addCart, setAddCart] = useState([]);
+  const [showPopout, setShowPoput] = useState(false);
+  
 
   useEffect(() => {
     // Fetching API
@@ -26,12 +30,31 @@ function App() {
   setCategoryReturn(cat)
   }
 
+  // Update Cart 
+  const handleCartClick = (product) => {
+    setAddCart([...addCart, product])
+  }
+
+
+
+// Show Cart Popout
+const handleClickPopout = () => {
+    setShowPoput(true)
+}
+
+// Hide Cart Popout
+const handleHidePopout = () => {
+  setShowPoput(false)
+}
+
+
+
+
   
-  
-  
-  return ( <div>
+  return ( <div >
     <div className="bg-gradient-to-b from-blue-500	">
-      <Navbar />
+      <CartPopout handleHidePopout={handleHidePopout} val={showPopout} value={addCart} />
+      <Navbar handleClickPopout={handleClickPopout} value={addCart.length}  />
       <Hero  />
       </div>
      {/* Display Product data on the page */}
@@ -39,13 +62,18 @@ function App() {
       <div className="grid grid-cols-4 m-auto justify-center gap-10	px-72 pt-10  	 ">
         {product.map((value) => {
           return (
-            <>
-            <div className=" transform transition-all mx-auto w-full h-96 flex flex-col border-2 border-blue-500 rounded-lg p-10 cursor-pointer hover:scale-110	 ">
-            <img className="w-48 h-48 self-center	" src={`${value.image}`} alt={`${value.title}`} />
-            <h5 className="py-5 text-left">{value.title}</h5>
+            <div key={value.id}>
+            <div  className=" transform transition-all mx-auto w-full h-96 flex flex-col gap-y-3 border-2 border-blue-500 rounded-lg p-10 cursor-pointer hover:scale-110	 ">
+            <img className="w-36 h-36 self-center	" src={`${value.image}`} alt={`${value.title}`} />
+            <h5 className="pt-5 pb-3 text-center truncate">{value.title}</h5>
+            <div className="flex flex-col place-items-center gap-y-2	">
             <p className="font-bold	">${value.price}</p>
+            <button onClick={() => {
+              handleCartClick(value)
+            }} className="transform transition-all bg-black text-white rounded-full py-2 px-4 hover:scale-110">Add to cart</button>
+            </div>
         </div>
-            </>
+            </div>
           )
         })}
         

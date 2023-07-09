@@ -10,8 +10,9 @@ function Dropdown({dropCat}) {
  
 
   return (
-    
-    <div className="relative z-10	 flex flex-col items-center w-[340px] h-[100px] rounded-lg ml-[300px] mt-[200px] ">
+    <div className="flex ml-[300px] mt-[200px] ">
+    <h2 className="font-display text-6xl pr-10">Shop By Category</h2>
+    <div className="relative z-10	 flex flex-col items-center w-[340px] h-[100px] rounded-lg  ">
       <button onClick={() => setIsOpen((prev) => !prev)} className="bg-blue-400 p-4 w-full flex items-center justify-between font-bold text-lg rounded-lg tracking-wider border-4 border-transparent active:border-white duration-300 active:text-white">Select Category {!isOpen ? (<AiOutlineCaretDown className="h-8" />) : (<AiOutlineCaretUp className="h-8" />) }</button>
 
       {isOpen && (
@@ -38,7 +39,7 @@ function Dropdown({dropCat}) {
         
       )}
       </div>
-     
+      </div>
   )
   
 }
