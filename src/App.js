@@ -5,6 +5,7 @@ import Category from "./Category";
 import Dropdown from "./Components/Dropdown";
 import CartPopout from "./Components/CartPopout";
 import { useState, useEffect } from "react";
+import './Components/App.css';
 
 function App() {
   const [product, setProduct] = useState([]);

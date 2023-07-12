@@ -6,7 +6,7 @@ function CartPopout({value, val, handleHidePopout}) {
 
 const [cartItems, setCartItems] = useState([])
 
-
+// Left off here - need to figure out how to delete from cart & limit list to 3
 function removeItem(deleteItem) {
 const newList = value.filter((item) => item !== deleteItem );
 setCartItems(newList);

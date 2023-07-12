@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { BsArrowRight } from 'react-icons/bs'
 function Hero() {
-const [menAccarrow, setMenAccArrow] = useState("right-1/3");
-const [menCloarrow, setMenCloArrow] = useState("right-60");
-const [menShoarrow, setMenShoArrow] = useState("right-64");
-const [womenCloarrow, setWomenCloArrow] = useState("right-1/3");
-const [womenShoarrow, setWomenShoArrow] = useState("right-1/3");
+const [menAccarrow, setMenAccArrow] = useState("translate-x-0");
+const [menCloarrow, setMenCloArrow] = useState("translate-x-0");
+const [menShoarrow, setMenShoArrow] = useState("translate-x-0");
+const [womenCloarrow, setWomenCloArrow] = useState("translate-x-0");
+const [womenShoarrow, setWomenShoArrow] = useState("translate-x-0");
 const [scrollTop, setScrollTop] = useState('');
 
 
@@ -25,38 +25,48 @@ window.addEventListener('scroll', scrollClouds);
 
   return ( <div>
     
-    <div className=' py-8 flex justify-center place-items-center gap-x-2 '>
-      <img className={`transform transition-all duration-1000	 max-h-80 pr-8 self-start ${scrollTop} `} src={require('../src/Images/image-from-rawpixel-id-6576111-original.png') } alt="Clouds" />
-      <div className='flex flex-col max-w-xl  gap-y-2 '>
-        <div onMouseEnter={() => {setMenAccArrow("right-1/4")}} onMouseLeave={() => {setMenAccArrow("right-1/3")}} className='relative cursor-pointer'>
-          <p className={`absolute bottom-0  transform -translate-y-0 z-10 font-display text-5xl pointer-events-none pl-2 text-white	 `}>Men's Accesories </p>
-          <BsArrowRight className={`transform transition-all absolute bottom-0 -translate-y-0 z-10 text-white text-5xl ${menAccarrow}`}/>
-      <img  className={`rounded-md  brightness-50 	`}  src={require('../src/Images/mensTop.jpg')} alt='Mens Accesories' />
+    <div className='gap-y-3 flex-col py-8 flex justify-center place-items-center gap-x-2 lg:flex-row xl:gap-y-0 '>
+      <img className={`hidden transform transition-all duration-1000	 max-h-80 pr-8 self-start ${scrollTop} xl:flex `} src={require('../src/Images/image-from-rawpixel-id-6576111-original.png') } alt="Clouds" />
+      <div className='flex flex-col max-w-xl  gap-y-2  '>
+        <div onMouseEnter={() => {setMenAccArrow("translate-x-10")}} onMouseLeave={() => {setMenAccArrow("translate-x-0")}} className='relative cursor-pointer '>
+          <div className='flex absolute gap-4 bottom-0'>
+          <p className={`text-3xl  bottom-0  transform -translate-y-0 z-10 font-display  pointer-events-none pl-2 text-white md:text-5xl	xl:text-4xl `}>Men's Accesories </p>
+          <BsArrowRight className={` transform transition-all  bottom-0 -translate-y-0 z-10 text-white text-3xl ${menAccarrow} md:text-5xl  xl:text-4xl`}/>
+          </div>
+      <img  className={`rounded-md  brightness-50`}  src={require('../src/Images/mensTop.jpg')} alt='Mens Accesories' />
       </div>
-      <div onMouseEnter={() => {setMenCloArrow("right-1/3")}} onMouseLeave={() => {setMenCloArrow("right-60")}} className='relative cursor-pointer'>
-          <p className={`absolute bottom-0  transform -translate-y-0 z-10 font-display text-5xl pointer-events-none pl-2 text-white	 `}>Men's Clothes</p>
-          <BsArrowRight className={`transform transition-all absolute bottom-0 -translate-y-0 z-10 text-white text-5xl ${menCloarrow}`}/>
+      <div onMouseEnter={() => {setMenCloArrow("translate-x-10")}} onMouseLeave={() => {setMenCloArrow("translate-x-0")}} className='relative cursor-pointer'>
+        <div className='flex absolute gap-4 bottom-0'>
+          <p className={`text-3xl  bottom-0  transform -translate-y-0 z-10 font-display pointer-events-none pl-2 text-white	md:text-5xl	xl:text-4xl `}>Men's Clothes</p>
+          <BsArrowRight className={` transform transition-all  bottom-0 -translate-y-0 z-10 text-white text-3xl ${menCloarrow} md:text-5xl	xl:text-4xl`}/>
+          </div>
       <img className={`rounded-md  brightness-50 	`}  src={require('../src/Images/mensMid.jpg')} alt='Mens Clothes' />
       </div>
-      <div onMouseEnter={() => {setMenShoArrow("right-1/3")}} onMouseLeave={() => {setMenShoArrow("right-60")}} className='relative cursor-pointer'>
-          <p className={`absolute bottom-0  transform -translate-y-0 z-10 font-display text-5xl pointer-events-none pl-2 text-white	 `}>Men's Shoes</p>
-          <BsArrowRight className={`transform transition-all absolute bottom-0 -translate-y-0 -translate-x-8 z-10 text-white text-5xl ${menShoarrow}`}/>
-      <img   className={`rounded-md  brightness-50`}  src={require('../src/Images/mensBottom.jpg')} alt='Mens Shoes' />
+      <div onMouseEnter={() => {setMenShoArrow("translate-x-10")}} onMouseLeave={() => {setMenShoArrow("translate-x-0")}} className='relative cursor-pointer'>
+        <div className='flex absolute gap-4 bottom-0'>
+          <p className={`bottom-0  transform -translate-y-0 z-10 font-display text-3xl pointer-events-none pl-2 text-white	md:text-5xl	xl:text-4xl `}>Men's Shoes</p>
+          <BsArrowRight className={`transform transition-all bottom-0 -translate-y-0  z-10 text-white text-3xl ${menShoarrow} md:text-5xl	xl:text-4xl `}/>
+          </div>
+      <img className={`rounded-md  brightness-50`}  src={require('../src/Images/mensBottom.jpg')} alt='Mens Shoes' />
       </div>
       </div>
       <div className='flex flex-col max-w-xl gap-y-4'>
-      <div onMouseEnter={() => {setWomenCloArrow("right-1/4")}} onMouseLeave={() => {setWomenCloArrow("right-1/3")}} className='relative cursor-pointer'>
-          <p className={`absolute bottom-0  transform -translate-y-0 z-10 font-display text-5xl pointer-events-none pl-2 text-white	 `}>Women's Clothes</p>
-          <BsArrowRight className={`transform transition-all absolute bottom-0 -translate-y-0  z-10 text-white text-5xl ${womenCloarrow}`}/>
+      <div onMouseEnter={() => {setWomenCloArrow("translate-x-10")}} onMouseLeave={() => {setWomenCloArrow("translate-x-0")}} className='relative cursor-pointer'>
+        <div className='flex absolute gap-4 bottom-0'>
+          <p className={`bottom-0  transform -translate-y-0 z-10 font-display text-3xl pointer-events-none pl-2 text-white md:text-5xl	xl:text-4xl `}>Women's Clothes</p>
+          <BsArrowRight className={`transform transition-all bottom-0 -translate-y-0  z-10 text-white text-3xl ${womenCloarrow} md:text-5xl	xl:text-4xl`}/>
+          </div>
       <img  className={`rounded-md  brightness-50 	`}  src={require('../src/Images/womenTop.jpg')} alt='Womens clothes' />
       </div>
-      <div onMouseEnter={() => {setWomenShoArrow("right-1/4")}} onMouseLeave={() => {setWomenShoArrow("right-1/3")}} className='relative cursor-pointer'>
-          <p className={`absolute bottom-0  transform -translate-y-0 z-10 font-display text-5xl pointer-events-none pl-2 text-white	 `}>Women's Shoes</p>
-          <BsArrowRight className={`transform transition-all absolute bottom-0 -translate-y-0 -translate-x-6  z-10 text-white text-5xl ${womenShoarrow}`}/>
+      <div onMouseEnter={() => {setWomenShoArrow("translate-x-10")}} onMouseLeave={() => {setWomenShoArrow("translate-x-0")}} className='relative cursor-pointer'>
+        <div className='flex absolute gap-4 bottom-0'>
+          <p className={`bottom-0  transform -translate-y-0 z-10 font-display text-3xl pointer-events-none pl-2 text-white	md:text-5xl	xl:text-4xl `}>Women's Shoes</p>
+          <BsArrowRight className={`transform transition-all  bottom-0 -translate-y-0  z-10 text-white text-3xl ${womenShoarrow} md:text-5xl	xl:text-4xl`}/>
+          </div>
       <img   className={`rounded-md  brightness-50 	`}  src={require('../src/Images/womenBottom.jpg')} alt='Womens Shoes' />
       </div>
       </div>
-      <img className={`transform transition-all duration-1000 max-h-80 pr-8 -scale-x-100 self-start ${scrollTop}`} src={require('../src/Images/image-from-rawpixel-id-6576111-original.png') } alt="Clouds" />
+      <img className={`hidden transform transition-all duration-1000 max-h-80 pr-8 -scale-x-100 self-start ${scrollTop} xl:flex`} src={require('../src/Images/image-from-rawpixel-id-6576111-original.png') } alt="Clouds" />
       </div>
 
   </div>
