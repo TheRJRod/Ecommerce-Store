@@ -7,7 +7,7 @@ function CartPopout({value, val, handleHidePopout, removeItem}) {
 
 
   return (
-    <div className={` transform transition-all ${val ? '' : 'translate-x-full'} absolute top-0 -right-0 h-screen w-3/12 bg-white z-20 overflow-hidden	 `}>
+    <div className={`w-1/2 transform transition-all ${val ? '' : 'translate-x-full'} absolute top-0 -right-0 h-screen md:w-3/12 bg-white z-20 overflow-hidden	 `}>
       <div className="pt-10 relative">
         <BsFillArrowLeftCircleFill onClick={handleHidePopout} className="text-4xl ml-5 text-gray-500 cursor-pointer hover:text-blue-500"/>
       <h2 className="text-center font-display text-6xl">Cart Items ({value.length})</h2>
