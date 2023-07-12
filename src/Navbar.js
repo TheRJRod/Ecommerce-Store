@@ -7,7 +7,7 @@ function Navbar({value, handleClickPopout}) {
 
   return(
     <nav className='flex justify-around place-items-center py-10'>
-      <img className='max-h-10' src={require('./r2logo.png')} alt='Company logo' />
+      <img className='max-h-10 lg:max-h-16' src={require('./r2logo.png')} alt='Company logo' />
       <ul className="flex gap-x-8  ">
         <li className='hidden hover:border-b-white border-transparent border-2 cursor-pointer text-white font-display text-2xl md:flex'>Products</li>
         <li className='hidden hover:border-b-white border-transparent border-2 cursor-pointer text-white font-display text-2xl md:flex'>Contact</li>

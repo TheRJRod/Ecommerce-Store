@@ -26,7 +26,7 @@ window.addEventListener('scroll', scrollClouds);
   return ( <div>
     
     <div className='gap-y-3 flex-col py-8 flex justify-center place-items-center gap-x-2 lg:flex-row xl:gap-y-0 '>
-      <img className={`hidden transform transition-all duration-1000	 max-h-80 pr-8 self-start ${scrollTop} xl:flex `} src={require('../src/Images/image-from-rawpixel-id-6576111-original.png') } alt="Clouds" />
+      <img className={`hidden  transform transition-all duration-1000	 max-h-80 pr-8 self-start ${scrollTop} xl:flex `} src={require('../src/Images/image-from-rawpixel-id-6576111-original.png') } alt="Clouds" />
       <div className='flex flex-col max-w-xl  gap-y-2  '>
         <div onMouseEnter={() => {setMenAccArrow("translate-x-10")}} onMouseLeave={() => {setMenAccArrow("translate-x-0")}} className='relative cursor-pointer '>
           <div className='flex absolute gap-4 bottom-0'>

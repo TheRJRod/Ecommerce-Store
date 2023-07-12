@@ -48,23 +48,28 @@ const handleHidePopout = () => {
   setShowPoput(false)
 }
 
+function removeItem(removedProduct) {
+  setAddCart(addCart.filter((product) => product !== removedProduct ))
+  }
+  
+
 
 
 
   
   return ( <div >
     <div className="bg-gradient-to-b from-blue-500	">
-      <CartPopout handleHidePopout={handleHidePopout} val={showPopout} value={addCart} />
+      <CartPopout removeItem={removeItem} handleHidePopout={handleHidePopout} val={showPopout} value={addCart} />
       <Navbar handleClickPopout={handleClickPopout} value={addCart.length}  />
       <Hero  />
       </div>
      {/* Display Product data on the page */}
-      <h2 className="px-72 font-display text-5xl pt-20 ">Our Hottest Items</h2>
-      <div className="grid grid-cols-4 m-auto justify-center gap-10	px-72 pt-10  	 ">
+      <h2 className="text-center md:px-72 font-display text-5xl pt-36 ">Our Hottest Items</h2>
+      <div className="flex flex-col xl:grid xl:grid-cols-4 m-auto justify-center xl:gap-10	xl:px-72 pt-10  	 ">
         {product.map((value) => {
           return (
             <div key={value.id}>
-            <div  className=" transform transition-all mx-auto w-full h-96 flex flex-col gap-y-3 border-2 border-blue-500 rounded-lg p-10 cursor-pointer hover:scale-110	 ">
+            <div  className=" transform transition-all mx-auto w-full h-96 flex flex-col gap-y-3 border-2 border-blue-500 rounded-lg p-10 cursor-pointer lg:hover:scale-110	 ">
             <img className="w-36 h-36 self-center	" src={`${value.image}`} alt={`${value.title}`} />
             <h5 className="pt-5 pb-3 text-center truncate">{value.title}</h5>
             <div className="flex flex-col place-items-center gap-y-2	">
