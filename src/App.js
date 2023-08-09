@@ -53,8 +53,11 @@ function removeItem(removedProduct) {
   }
   
 
-
-
+// Currency Format
+const moneyFormat = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency:'USD'
+})
 
   
   return ( <div >
@@ -65,15 +68,15 @@ function removeItem(removedProduct) {
       </div>
      {/* Display Product data on the page */}
       <h2 className="text-center md:px-72 font-display text-5xl pt-36 ">Our Hottest Items</h2>
-      <div className="flex flex-col xl:grid xl:grid-cols-4 m-auto justify-center xl:gap-10	xl:px-72 pt-10  	 ">
+      <div className="flex flex-col  xl:grid xl:grid-cols-4 m-auto justify-center xl:gap-10	xl:px-72 pt-10  	 ">
         {product.map((value) => {
           return (
             <div key={value.id}>
-            <div  className=" transform transition-all mx-auto w-full h-96 flex flex-col gap-y-3 border-2 border-blue-500 rounded-lg p-10 cursor-pointer lg:hover:scale-110	 ">
+            <div  className=" transform transition-all mx-auto w-full h-96 flex flex-col gap-y-3 border-2 border-gray-300/25 shadow-lg	 rounded-lg p-10 cursor-pointer lg:hover:scale-110	 ">
             <img className="w-36 h-36 self-center	" src={`${value.image}`} alt={`${value.title}`} />
             <h5 className="pt-5 pb-3 text-center truncate">{value.title}</h5>
             <div className="flex flex-col place-items-center gap-y-2	">
-            <p className="font-bold	">${value.price}</p>
+            <p className="font-bold	">{moneyFormat.format(value.price)}</p>
             <button onClick={() => {
               handleCartClick(value)
             }} className="transform transition-all bg-black text-white rounded-full py-2 px-4 hover:scale-110">Add to cart</button>
@@ -86,7 +89,7 @@ function removeItem(removedProduct) {
       </div>
       <FeaturedHome value={product}/>
       <Dropdown dropCat={dropCat} />
-      <Category value={categoryReturn} />  
+      <Category moneyFormat={moneyFormat} value={categoryReturn} />  
       </div>
   )
   
